@@ -6,7 +6,7 @@
   for ($i = 0; $i < 256; $i++) {
     $r = rand(0, count($colors) - 1);
     $c = $colors[$r];
-    echo "<span style='color:$c'>■</span>";
+    echo "<span style='color:$c'>@</span>";
     if ($i % 16 == 15){ echo "<br>"; }
   }
   ?>

@@ -45,8 +45,8 @@ function generateMaze($width = 55, $height = 55) {
       $maze[$y][$x] = 1;
       // 壁の上下左右のいずれかに壁を作る
       $r = $UDLR[mt_rand(0, 3)]; // 擬似乱数を生成
-      $y2 = $y + $r[0];
-      $x2 = $x + $r[1];
+      $y2 = $y + $r[1];
+      $x2 = $x + $r[0];
       $maze[$y2][$x2] = 1;
     }
   }
@@ -60,7 +60,6 @@ function drawMaze($maze) {
 
   $pat[0] = "<span class='road'>0,</span>"; // 通路
   $pat[1] = "<span class='wall'>1,</span>"; // 壁
-  
   $html = "";
 
   for ($y = 0; $y < count($maze); $y++) {
