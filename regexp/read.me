@@ -1,0 +1,29 @@
+メタ文字を単なる文字列にする方法について。
+正規表現では、たまにメタ文字自身を単なる文字列と扱いたいことがあります。
+以下の2つのJavaScriptの違いは分かるでしょうか？
+
+1. 'I have (two pens)'.match(/(two pen.)/);   // two pensとマッチする
+2. 'I have (two pens.)'.match(/\(two pens\.\)/); // (two pens.)とマッチする
+
+(1行目の解説)
+- match()の中身を確認する
+- /(two pen.)/のうち、先端と終端のスラッシュでパターンマッチさせる文字列を確定させる
+- 丸括弧で繰り返しの文字列をパターンマッチを確定させる。ここで使われている丸括弧はそれぞれメタ文字である
+- 閉じる丸括弧の前で任意の1文字を表す、.を用いる。ここで使われているピリオドはメタ文字である
+
+(2行目の解説)
+- メタ文字である
+- /\(two pens\.\)/のうち、先端と終端のスラッシュでパターンマッチさせる文字列を確定させる
+- それぞれの丸括弧の前に付いているバックスラッシュは、()がメタ文字であることを打ち消して、単なる文字列にするために使われている
+- ピリオドの前に付いているバックスラッシュは、.がメタ文字であることを打ち消している
+
+つまり、\（バックスラッシュ）は、メタ文字の前に使うことによって、メタ文字自身であることを打ち消していることになります。
+ちなみに
+
+（参考ページ）
+#08 \に続くメタ文字 | 正規表現入門 - ドットインストール
+http://dotinstall.com/lessons/basic_regexp/5208
+String.prototype.match() - JavaScript | MDN
+https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/match
+PHP: エスケープシーケンス - Manual 
+http://php.net/manual/ja/regexp.reference.escape.php
