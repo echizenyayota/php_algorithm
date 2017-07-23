@@ -7,11 +7,22 @@
 <body>
 <script>
 
+var h = 'abc(def)ghi'.match(/(def)/);
+var i = 'abc(def)ghi'.match(/(de)(f)/);
+var j = 'abc(def)ghi'.match(/(d)(e)(f)/);
+var k = 'abc(def)ghi'.match(/\(def\)/);
+
+console.log(h);
+console.log(i);
+console.log(j);
+console.log(k);
+
 var k = 'I have (two pens)'.match(/(two pen.)/)[0];   // two pensとマッチする
 var l = 'I have (two pens.)'.match(/\(two pens\.\)/)[0]; // (two pens.)とマッチする
 
 console.log(k);
 console.log(l);
+
 
 </script>
 </body>
