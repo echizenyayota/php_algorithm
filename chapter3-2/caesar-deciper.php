@@ -14,7 +14,8 @@ function makeTable($shift) {
   // var_dump($alp_s_shift);
   // exit;
   $table = [];
-  for ($i = 0; $i < strlen($alp_b);$i++) {
+  // for ($i = 0; $i < strlen($alp_b);$i++) {
+  for ($i = 0; $i < 2;$i++) {
     $c1 = substr($alp_b, $i, 1);
     // var_dump($alp_b);
     // exit;
@@ -31,16 +32,23 @@ function makeTable($shift) {
     $table[$c2] = $c1;
     // var_dump($table);
     // var_dump($table[$c2]);
+    // exit;
   }
   return $table;
 }
 
+// 一字ずつ変換する
 function decode($str, $shift) {
   $table = makeTable($shift);
+  // print_r($table);
+  // exit;
   $res = "";
   for ($i = 0; $i < strlen($str); $i++) {
     $c = substr($str, $i, 1);
+    var_dump($c);
     $res .= isset($table[$c]) ? $table[$c] : $c;
+    var_dump($res);
+    exit;
   }
   return $res;
 }
