@@ -1,5 +1,5 @@
 <?php
-
+header("Content-Type: text/html; charset=UTF-8");
 // 暗号化したい文字列
 $str = "我輩は猫である。名前はまだない。";
 
@@ -27,6 +27,7 @@ function convert($str, $pad) {
     // 文字列として出力する
     $res .= chr($cx);
     $res_utf_8 = mb_convert_encoding($res, "UTF-8", "ASCII");
+    echo mb_detect_encoding($res_utf_8);
     var_dump($res_utf_8);
     exit;
   }
