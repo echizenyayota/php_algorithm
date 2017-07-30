@@ -27,6 +27,7 @@ function convert($str, $pad) {
 // 暗号化
 $enc = convert($str, $pad);
 echo "暗号化した文字列:{$enc}\n";
+echo "<br>";
 // 復号化
 $dec = convert($enc, $pad);
 echo "復号化した文字列:{$dec}\n";
